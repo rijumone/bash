@@ -30,6 +30,6 @@ if [ $1 ]; then
 
 	# make curl request and save to file
 
-	curl -H "Content-Type: application/json" -d "$value" http://localhost:1337/export/format"$1" -o cookie_reports/$DIR/$month"_"$day"_"$year.csv
+	curl -H "Content-Type: application/json" -d "$value" http://localhost:1337/export/format"$1" -o cookie_reports/$DIR/$month"_"$day"_"$year"_format_"$1.csv
 
 fi
