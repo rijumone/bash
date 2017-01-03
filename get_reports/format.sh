@@ -24,9 +24,9 @@ if [ $1 ]; then
 
 	value='{"startDate": "'$month' '$day' '$year' 00:00:00 GMT+0530 (India Standard Time)", "endDate": "'$month' '$day' '$year' 23:59:59 GMT+0530 (India Standard Time)"}'
 	
-	value='{"startDate": "Oct 30 2016 00:00:00 GMT+0530 (India Standard Time)", "endDate": "Oct 30 2016 06:59:59 GMT+0530 (India Standard Time)"}'
+	# value='{"startDate": "Oct 30 2016 00:00:00 GMT+0530 (India Standard Time)", "endDate": "Nov 30 2016 23:59:59 GMT+0530 (India Standard Time)"}'
 
-	echo '+---------------------------------+\n| Saving report '$1' for '$month $day $year' |\n+---------------------------------+\n'
+	echo '+---------------------------------+\n| Saving report'$1' for '$month $day $year' |\n+----------------------------------+\n'
 
 	# make curl request and save to file
 
