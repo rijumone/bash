@@ -7,15 +7,6 @@ if [ $1 ]; then
 	  	mkdir -m 777 cookie_reports
 	fi
 
-	# now check if dated folder exists
-	# if not create
-
-	DIR=`date +%m%d%y`
-
-	if ! [ -d cookie_reports/$DIR ]; then
-	  	mkdir -m 777 cookie_reports/$DIR
-	fi
-
 	# get date attributes
 
 	month=`date +%b`
@@ -23,9 +14,19 @@ if [ $1 ]; then
 	day=`expr $day - 1`
 	year=`date +%Y`
 
+
+	# now check if dated folder exists
+	# if not create
+
+	DIR=$month"_"$day"_"$year
+
+	if ! [ -d cookie_reports/$DIR ]; then
+	  	mkdir -m 777 cookie_reports/$DIR
+	fi
+
 	value='{"startDate": "'$month' '$day' '$year' 00:00:00 GMT+0530 (India Standard Time)", "endDate": "'$month' '$day' '$year' 23:59:59 GMT+0530 (India Standard Time)"}'
 	
-	# value='{"startDate": "Nov 30 2016 00:00:00 GMT+0530 (India Standard Time)", "endDate": "Nov 30 2016 23:59:59 GMT+0530 (India Standard Time)"}'
+	value='{"startDate": "Nov 30 2016 00:00:00 GMT+0530 (India Standard Time)", "endDate": "Nov 30 2016 23:59:59 GMT+0530 (India Standard Time)"}'
 
 	echo '+--------------------------------+\n| Saving report'$1' for '$month $day $year' |\n+--------------------------------+\n'
 
